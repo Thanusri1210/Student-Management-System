@@ -5,7 +5,7 @@ public class Student {
     int id;
     int marks;
     String name;
-    String departmet;
+    String department;
     String grade;
     public Student(){
 
@@ -15,7 +15,7 @@ public class Student {
         this.id=id;
         this.marks=marks;
         this.name=name;
-        this.departmet=department;
+        this.department=department;
         this.grade=grade;
     }
 }
