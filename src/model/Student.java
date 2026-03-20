@@ -1,45 +1,70 @@
 package model;
-
-public class Student {
-    private int age;
+public class Student
+{
     private int id;
-    private int marks;
     private String name;
+    private int age;
     private String department;
+    private int marks;
     private char grade;
-    public Student(){
-
-    }
-    public Student(int age,int id,int marks,String name,String department)
+    public Student(int id,String name,int age,String department,int marks)
     {
-        this.age=age;
         this.id=id;
-        this.marks=marks;
         this.name=name;
+        this.age=age;
         this.department=department;
+        setMarks(marks);
+    }
+    public void setMarks(int marks){
+        if(marks<0 || marks>100){
+            throw new IllegalArgumentException("Marks should be only between 0 and 100");
+        }
+        this.marks=marks;
+        this.grade=calculateGrade(marks);
+    }
+    private char calculateGrade(int marks)
+    {
         if(marks>=90)
         {
-           this.grade='A';
+          return 'A';
         }
         else if(marks>=80)
         {
-           this.grade='B';
+           return 'B';
         }
         else if(marks>=70)
         {
-            this.grade='C';
+            return 'C';
         }
         else if(marks>=60)
         {
-           this.grade='D';
+           return 'D';
         }
         else if(marks>=50)
         {
-            this.grade='E';
+           return 'E';
         }
         else
         {
-            this.grade='F';
+            return 'F';
         }
+    }
+    public int getId(){
+        return id;
+    }
+    public int getAge(){
+        return age;
+    }
+    public int getMarks(){
+        return marks;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getDepartment(){
+        return department;
+    }
+    public char getGrade(){
+        return grade;
     }
 }
